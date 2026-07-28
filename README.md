@@ -211,4 +211,10 @@ Open `index.html` in your browser or run it using the **Live Server** extension 
 
 ---
 
+## 📬 Connect with Me
 
+* 💼 LinkedIn: https://www.linkedin.com/in/ankit-singh-35815333b/
+* 🐙 GitHub: https://github.com/Ankit-Singh-AI
+* 📧 Email: [ankitsinghssps@gmail.com](mailto:ankitsinghssps@gmail.com)
+
+---
