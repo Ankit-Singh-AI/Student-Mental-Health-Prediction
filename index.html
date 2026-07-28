@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Balance — Mental Health Check-in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="hero">
+  <div class="hero__inner">
+    <span class="eyebrow">STUDENT WELLNESS ANALYTICS</span>
+    <h1 class="hero__title">Know Your<br><em>Mental Health Score</em></h1>
+    <p class="hero__sub">Tell us how you spend your hours online and off. We'll estimate where your wellbeing score is likely sitting right now — a nudge to notice patterns, not a verdict.</p>
+  </div>
+  <div class="hero__compass" aria-hidden="true">
+    <svg viewBox="0 0 200 200" class="compass-svg">
+      <circle cx="100" cy="100" r="92" class="compass-ring compass-ring--outer"/>
+      <circle cx="100" cy="100" r="70" class="compass-ring compass-ring--inner"/>
+      <line x1="100" y1="100" x2="100" y2="30" class="compass-tick" transform="rotate(0 100 100)"/>
+      <line x1="100" y1="100" x2="100" y2="30" class="compass-tick" transform="rotate(45 100 100)"/>
+      <line x1="100" y1="100" x2="100" y2="30" class="compass-tick" transform="rotate(90 100 100)"/>
+      <line x1="100" y1="100" x2="100" y2="30" class="compass-tick" transform="rotate(135 100 100)"/>
+      <line x1="100" y1="100" x2="100" y2="30" class="compass-tick" transform="rotate(180 100 100)"/>
+      <line x1="100" y1="100" x2="100" y2="30" class="compass-tick" transform="rotate(225 100 100)"/>
+      <line x1="100" y1="100" x2="100" y2="30" class="compass-tick" transform="rotate(270 100 100)"/>
+      <line x1="100" y1="100" x2="100" y2="30" class="compass-tick" transform="rotate(315 100 100)"/>
+      <circle cx="100" cy="100" r="4" class="compass-hub"/>
+    </svg>
+  </div>
+</header>
+
+<main class="content">
+
+  <form id="predictForm" class="card form-card" novalidate>
+
+    <div class="form-card__head">
+      <h2>Your check-in</h2>
+      <p>Every field feeds the estimate — fill in what's true for a typical day.</p>
+    </div>
+
+    <fieldset class="group">
+      <legend>Profile</legend>
+      <div class="field">
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" min="10" max="100" step="1" required placeholder="e.g. 21">
+        <span class="field__error" data-error-for="age"></span>
+      </div>
+      <div class="field">
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+          <option value="" disabled selected>Select…</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+        <span class="field__error" data-error-for="gender"></span>
+      </div>
+      <div class="field">
+        <label for="country">Country</label>
+        <select id="country" name="country" required>
+          <option value="" disabled selected>Select…</option>
+          <option value="India">India</option>
+          <option value="USA">USA</option>
+          <option value="Canada">Canada</option>
+          <option value="Australia">Australia</option>
+          <option value="UK">UK</option>
+          <option value="Germany">Germany</option>
+          <option value="Mexico">Mexico</option>
+          <option value="Turkey">Turkey</option>
+          <option value="France">France</option>
+          <option value="Other">Other</option>
+        </select>
+        <span class="field__error" data-error-for="country"></span>
+      </div>
+      <div class="field">
+        <label for="academic_level">Academic level</label>
+        <select id="academic_level" name="academic_level" required>
+          <option value="" disabled selected>Select…</option>
+          <option value="High School">High School</option>
+          <option value="Undergraduate">Undergraduate</option>
+          <option value="Graduate">Graduate</option>
+        </select>
+        <span class="field__error" data-error-for="academic_level"></span>
+      </div>
+    </fieldset>
+
+    <fieldset class="group">
+      <legend>Digital habits</legend>
+      <div class="field">
+        <label for="most_used_platform">Most-used platform</label>
+        <select id="most_used_platform" name="most_used_platform" required>
+          <option value="" disabled selected>Select…</option>
+          <option>Facebook</option>
+          <option>LinkedIn</option>
+          <option>Instagram</option>
+          <option>Snapchat</option>
+          <option>Twitter</option>
+          <option>YouTube</option>
+          <option>TikTok</option>
+          <option>LINE</option>
+          <option>KakaoTalk</option>
+          <option>VKontakte</option>
+          <option>WhatsApp</option>
+          <option>WeChat</option>
+        </select>
+        <span class="field__error" data-error-for="most_used_platform"></span>
+      </div>
+      <div class="field">
+        <label for="purpose_of_use">Main purpose</label>
+        <select id="purpose_of_use" name="purpose_of_use" required>
+          <option value="" disabled selected>Select…</option>
+          <option value="Networking">Networking</option>
+          <option value="Education">Education</option>
+          <option value="Entertainment">Entertainment</option>
+          <option value="News">News</option>
+        </select>
+        <span class="field__error" data-error-for="purpose_of_use"></span>
+      </div>
+      <div class="field">
+        <label for="avg_daily_usage_hours">Avg. daily usage <span class="unit">(hrs)</span></label>
+        <input type="number" id="avg_daily_usage_hours" name="avg_daily_usage_hours" min="0" max="24" step="0.1" required placeholder="e.g. 4.5">
+        <span class="field__error" data-error-for="avg_daily_usage_hours"></span>
+      </div>
+      <div class="field">
+        <label for="daily_unlocks">Phone unlocks <span class="unit">(per day)</span></label>
+        <input type="number" id="daily_unlocks" name="daily_unlocks" min="0" step="1" required placeholder="e.g. 60">
+        <span class="field__error" data-error-for="daily_unlocks"></span>
+      </div>
+    </fieldset>
+
+    <fieldset class="group">
+      <legend>Lifestyle</legend>
+      <div class="field">
+        <label for="study_hours">Study hours <span class="unit">(per day)</span></label>
+        <input type="number" id="study_hours" name="study_hours" min="0" max="24" step="0.1" required placeholder="e.g. 3">
+        <span class="field__error" data-error-for="study_hours"></span>
+      </div>
+      <div class="field">
+        <label for="physical_activity_hours">Physical activity <span class="unit">(hrs/day)</span></label>
+        <input type="number" id="physical_activity_hours" name="physical_activity_hours" min="0" max="24" step="0.1" required placeholder="e.g. 1">
+        <span class="field__error" data-error-for="physical_activity_hours"></span>
+      </div>
+      <div class="field">
+        <label for="sleep_hours_per_night">Sleep <span class="unit">(hrs/night)</span></label>
+        <input type="number" id="sleep_hours_per_night" name="sleep_hours_per_night" min="0" max="24" step="0.1" required placeholder="e.g. 7">
+        <span class="field__error" data-error-for="sleep_hours_per_night"></span>
+      </div>
+    </fieldset>
+
+    <fieldset class="group">
+      <legend>Wellbeing</legend>
+      <div class="field field--wide">
+        <label for="stress_level">Stress level</label>
+        <div class="segmented" id="stress_level" data-name="stress_level">
+          <button type="button" class="segmented__opt" data-value="Low">Low</button>
+          <button type="button" class="segmented__opt" data-value="Medium">Medium</button>
+          <button type="button" class="segmented__opt" data-value="High">High</button>
+          <button type="button" class="segmented__opt" data-value="Very High">Very High</button>
+        </div>
+        <span class="field__error" data-error-for="stress_level"></span>
+      </div>
+    </fieldset>
+
+    <div class="form-card__foot">
+      <p class="disclaimer">This is a statistical estimate from a machine-learning model, not a clinical assessment.</p>
+      <button type="submit" id="submitBtn" class="btn-primary">
+        <span class="btn-primary__label">Get my score</span>
+        <span class="btn-primary__loader" hidden>
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </span>
+      </button>
+    </div>
+
+  </form>
+
+  <section id="resultSection" class="card result-card" hidden aria-live="polite">
+    <div class="result-card__gauge">
+      <svg viewBox="0 0 220 130" class="gauge-svg">
+        <path d="M 20 110 A 90 90 0 0 1 200 110" class="gauge-track"/>
+        <path d="M 20 110 A 90 90 0 0 1 200 110" class="gauge-fill" id="gaugeFill"/>
+        <line x1="110" y1="110" x2="110" y2="35" id="gaugeNeedle" class="gauge-needle"/>
+        <circle cx="110" cy="110" r="6" class="gauge-hub"/>
+      </svg>
+      <div class="gauge-scale">
+        <span>0</span><span>Score</span><span>10</span>
+      </div>
+    </div>
+    <div class="result-card__body">
+      <span class="result-card__eyebrow">Estimated score</span>
+      <span class="result-card__score" id="scoreValue">—</span>
+      <span class="result-card__descriptor" id="scoreDescriptor">—</span>
+      <p class="result-card__note" id="scoreNote"></p>
+      <button type="button" id="resetBtn" class="btn-secondary">Run another check-in</button>
+    </div>
+  </section>
+
+  <section id="errorSection" class="card error-card" hidden aria-live="assertive">
+    <span class="error-card__icon">!</span>
+    <div>
+      <h3 id="errorTitle">Something went wrong</h3>
+      <p id="errorMessage"></p>
+    </div>
+    <button type="button" id="errorDismiss" class="btn-secondary">Dismiss</button>
+  </section>
+
+</main>
+
+<footer class="page-footer">
+  <p>Digital Balance · powered by a local FastAPI model at <code>127.0.0.1:8000</code></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
