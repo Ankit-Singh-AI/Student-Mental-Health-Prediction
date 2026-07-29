@@ -3,7 +3,7 @@
 // Talks to the local FastAPI backend at http://127.0.0.1:8000/predict
 // ---------------------------------------------------------------------------
 
-const API_BASE_URL = 'http://127.0.0.1:8000';
+const API_BASE_URL = 'https://student-mental-health-prediction-555g.onrender.com';
 
 const form = document.getElementById('predictForm');
 const submitBtn = document.getElementById('submitBtn');
